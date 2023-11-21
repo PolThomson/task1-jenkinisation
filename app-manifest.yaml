@@ -10,19 +10,18 @@ spec:
     name: task1
     env:
       - name: YOUR_NAME
-        value: QA-Kubernetes
+        value: QA-kubernetes
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: task1-service
+  name: flask-app
   labels:
     app: task1-app
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: task1-app
   ports:
-    - port: 80
-      targetPort: 5500
+    - port: 5500
       protocol: TCP 
